@@ -1,7 +1,14 @@
-export function Button() {
+import { ButtonContainer, ButtonVariant } from './Button.styles.ts';
+
+interface ButtonProps {
+  text: string;
+  variant?: ButtonVariant;
+}
+
+export function Button({ text, variant = 'primary' }: ButtonProps) {
   return (
     <>
-      <button>Button</button>
+      <ButtonContainer variant={variant}>{text}</ButtonContainer>
     </>
   );
 }

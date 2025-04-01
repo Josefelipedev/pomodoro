@@ -1,18 +1,18 @@
-import { useState } from 'react'
-
-
+import { BrowserRouter } from 'react-router-dom';
+import { ThemeProvider } from 'styled-components';
+import { defaultTheme } from './styles/themes/default.ts';
+import { GlobalStyle } from './styles/global.ts';
+import { Router } from './routes/Router.tsx';
 
 export function App() {
-  const [count, setCount] = useState(0)
-
   return (
     <>
-      <h1>Count: {count}</h1>
-      <button onClick={() => setCount(count + 1)}>
-        Increment
-      </button>
+      <ThemeProvider theme={defaultTheme}>
+        <BrowserRouter>
+          <Router />
+        </BrowserRouter>
+        <GlobalStyle />
+      </ThemeProvider>
     </>
-  )
+  );
 }
-
-
